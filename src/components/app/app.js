@@ -1,10 +1,10 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import PrivateRoute from "../private-route/private-route";
-import LoginPage from "../login-page/login-page";
-import MainPage from "../main-page/main-page";
-import OrderPage from "../order-page/order-page";
-import NotFoundPage from "../not-found-page/not-found-page";
+import LoginPage from "../pages/login-page/login-page";
+import MainPage from "../pages/main-page/main-page";
+import OrderPage from "../pages/events-page/events-page";
+import NotFoundPage from "../pages/not-found-page/not-found-page";
 
 function App() {
   return (

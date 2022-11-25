@@ -1,5 +1,5 @@
 import "./style.css";
-import Layout from "../layout/layout";
+import Layout from "../../layout/layout";
 
 function LoginPage() {
   return (
