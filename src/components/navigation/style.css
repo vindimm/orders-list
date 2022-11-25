@@ -1,0 +1,35 @@
+.navigation {
+  display: flex;
+  gap: 28px;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 12px 16px;
+
+  background-color: #165996;
+}
+
+.navigation__link {
+  display: inline-block;
+  padding: 5px 10px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navigation__link:hover {
+  opacity: 0.8;
+}
+
+.navigation__user-name {
+  margin-left: auto;
+
+  line-height: 28px;
+}
+
+.navigation__logout {
+  min-width: 78px;
+
+  background-color: #d9d9d9;
+  border: none;
+  cursor: pointer;
+}

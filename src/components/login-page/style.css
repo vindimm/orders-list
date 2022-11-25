@@ -1,0 +1,31 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+  margin: auto;
+
+  box-sizing: border-box;
+  width: 344px;
+  min-height: 245px;
+  padding: 57px 38px 22px 38px;
+
+  background-color: #d9d9d9;
+}
+
+.login-form__interactive {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+}
+
+.login-form__button {
+  align-self: center;
+  min-width: 104px;
+
+  cursor: pointer;
+}
+
+.login-form__button:hover {
+  background-color: #f0f0f0;
+}
