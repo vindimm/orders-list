@@ -1,9 +1,12 @@
+.login-page__container {
+  padding: 170px 50px;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;
   gap: 30px;
   align-items: flex-start;
-  margin: auto;
 
   box-sizing: border-box;
   width: 344px;
@@ -28,4 +31,8 @@
 
 .login-form__button:hover {
   background-color: #f0f0f0;
+}
+
+.login-form__button:active {
+  background-color: #ffffff;
 }

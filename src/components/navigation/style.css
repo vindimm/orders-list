@@ -33,3 +33,11 @@
   border: none;
   cursor: pointer;
 }
+
+.navigation__logout:hover {
+  background-color: #b5b5b5;
+}
+
+.navigation__logout:active {
+  background-color: #d9d9d9;
+}

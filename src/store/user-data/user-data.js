@@ -10,7 +10,7 @@ export const userData = createSlice({
   initialState,
   reducers: {
     requireAuth: (state, action) => {
-      state.authStatus = action.payload.authoStatus;
+      state.authStatus = action.payload.authStatus;
       state.user = action.payload.user;
     },
   },
