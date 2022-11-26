@@ -1,15 +1,17 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { useNavigate } from "react-router-dom";
 
-// import { redirectToRoute } from "./actions";
-import { loadEvents } from "./events-data/events-data";
+import {
+  loadOrders,
+  deleteOrder,
+  completeOrder,
+} from "./orders-data/orders-data";
 import { requireAuth } from "./user-data/user-data";
 
-export const fetchEventsAction = createAsyncThunk(
-  "events/fetchEvents",
+export const fetchOrdersAction = createAsyncThunk(
+  "orders/fetchOrders",
   async (_arg, { dispatch, extra: api }) => {
     const { data } = await api.get("/events");
-    dispatch(loadEvents(data));
+    dispatch(loadOrders(data));
   }
 );
 
@@ -17,7 +19,10 @@ export const loginAction = createAsyncThunk(
   "user/login",
   async ({ login: username, password }, { dispatch, extra: api }) => {
     try {
-      const { data } = await api.get(`/users?user=${username}`, {username, password});
+      const { data } = await api.get(`/users?user=${username}`, {
+        username,
+        password,
+      });
       const [user] = data;
 
       if (user) {
@@ -30,18 +35,41 @@ export const loginAction = createAsyncThunk(
       } else {
         // Пользователь не найден
       }
-    } catch(error) {
-      dispatch(requireAuth({ authStatus: "NO_AUTH"}));
+    } catch (error) {
+      dispatch(requireAuth({ authStatus: "NO_AUTH" }));
     }
-  },
+  }
 );
 
 export const logoutAction = createAsyncThunk(
   "user/logout",
   async (_arg, { dispatch, extra: api }) => {
     try {
-      dispatch(requireAuth({authorizationStatus: "NO_AUTH"}));
-    } catch(error) {
+      dispatch(requireAuth({ authStatus: "NO_AUTH" }));
+    } catch (error) {
+      // handleError(error);
+    }
+  }
+);
+
+export const deleteOrderAction = createAsyncThunk(
+  "order/delete",
+  async (id, { dispatch, extra: api }) => {
+    try {
+      await api.delete(`/events/${id}`);
+      dispatch(deleteOrder(id));
+    } catch (error) {
+      // handleError(error);
+    }
+  }
+);
+
+export const completeOrderAction = createAsyncThunk(
+  "order/complete",
+  async (id, { dispatch, extra: api }) => {
+    try {
+      dispatch(completeOrder(id));
+    } catch (error) {
       // handleError(error);
     }
   }

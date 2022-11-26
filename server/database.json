@@ -28,8 +28,8 @@
   "users": [
     {
       "user": "admin",
-      "name": "Иван Иванов",
       "password": "123456789",
+      "name": "Иван Иванов",
       "role": "ADMIN"
     },
     {

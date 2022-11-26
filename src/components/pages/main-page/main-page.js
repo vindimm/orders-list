@@ -1,27 +1,25 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAuthStatus, getEvents } from "../../../store/selectors";
+import { getOrders } from "../../../store/selectors";
 import Navigation from "../../navigation/navigation";
 import Layout from "../../layout/layout";
-import EventsTable from "../../events-table/events-table";
-import { fetchEventsAction } from "../../../store/api-actions";
+import OrdersTable from "../../orders-table/orders-table";
+import { fetchOrdersAction } from "../../../store/api-actions";
 import "./style.css";
 
 function MainPage() {
-  const authStatus = useSelector(getAuthStatus);
-  console.log(authStatus);
   const dispatch = useDispatch();
-  const events = useSelector(getEvents);
+  const orders = useSelector(getOrders);
 
   useEffect(() => {
-    dispatch(fetchEventsAction());
+    dispatch(fetchOrdersAction());
   }, [dispatch]);
 
   return (
     <Layout>
       <Navigation />
-      <EventsTable events={events} />
+      <OrdersTable orders={orders} />
     </Layout>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAuthStatus } from "../../store/selectors"
+import { getAuthStatus, getUser } from "../../store/selectors"
 import { logoutAction } from "../../store/api-actions";
 import "./style.css";
 
@@ -10,6 +10,7 @@ function Navigation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const authStatus = useSelector(getAuthStatus);
+  const user = useSelector(getUser);
 
   useEffect(() => {
     if (authStatus !== "AUTH") {
@@ -30,7 +31,7 @@ function Navigation() {
       <Link className="navigation__link" to="/add-event">
         Добавить заказ
       </Link>
-      <span className="navigation__user-name">Имя Фамилия</span>
+      <span className="navigation__user-name">{user.name}</span>
       <button
         className="navigation__logout"
         type="button"
