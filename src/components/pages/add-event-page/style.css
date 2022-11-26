@@ -1,0 +1,32 @@
+.add-event__container {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 36px;
+  margin-top: 32px;
+  width: 200px;
+}
+
+.add-event__title {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.add-event__input {
+  width: 200px;
+  box-sizing: border-box;
+  height: 28px;
+  margin-bottom: 24px;
+  border: none;
+}
+
+.add-event__button {
+  border: none;
+  padding: 8px 16px;
+  background-color: #d2d2d2;
+  cursor: pointer;
+}
+
+.add-event__button:active {
+  opacity: 0.6;
+}

@@ -1,11 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: undefined,
-  password: undefined,
-  name: undefined,
-  role: undefined,
-  authStatus: 'UNKNOWN',
+  user: {},
+  authStatus: "UNKNOWN",
 };
 
 export const userData = createSlice({
@@ -13,10 +10,10 @@ export const userData = createSlice({
   initialState,
   reducers: {
     requireAuth: (state, action) => {
-      state.authStatus = action.payload.authorizationStatus;
+      state.authStatus = action.payload.authoStatus;
       state.user = action.payload.user;
     },
   },
 });
 
-export const {requireAuthorization} = userData.actions;
+export const { requireAuth } = userData.actions;

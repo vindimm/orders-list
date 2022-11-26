@@ -5,7 +5,7 @@ function Navigation() {
   return (
     <nav className="navigation">
       <Link className="navigation__link" to="/main">Все заказы</Link>
-      <Link className="navigation__link" to="/order">Добавить заказ</Link>
+      <Link className="navigation__link" to="/add-event">Добавить заказ</Link>
       <span className="navigation__user-name">Имя Фамилия</span>
       <button className="navigation__logout" type="button">Выйти</button>
     </nav>

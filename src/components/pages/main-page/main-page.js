@@ -5,7 +5,7 @@ import { getEvents } from "../../../store/selectors";
 import Navigation from "../../navigation/navigation";
 import Layout from "../../layout/layout";
 import EventsTable from "../../events-table/events-table";
-import { fetchOrdersAction } from "../../../store/api-actions";
+import { fetchEventsAction } from "../../../store/api-actions";
 import "./style.css";
 
 function MainPage() {
@@ -13,7 +13,7 @@ function MainPage() {
   const events = useSelector(getEvents);
 
   useEffect(() => {
-    dispatch(fetchOrdersAction());
+    dispatch(fetchEventsAction());
   }, [dispatch]);
 
   return (
