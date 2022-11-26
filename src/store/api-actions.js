@@ -64,6 +64,17 @@ export const deleteOrderAction = createAsyncThunk(
   }
 );
 
+export const addOrderAction = createAsyncThunk(
+  "order/add",
+  async (data, { dispatch, extra: api }) => {
+    try {
+      await api.post(`/events`, data);
+    } catch (error) {
+      // handleError(error);
+    }
+  }
+);
+
 export const completeOrderAction = createAsyncThunk(
   "order/complete",
   async (id, { dispatch, extra: api }) => {

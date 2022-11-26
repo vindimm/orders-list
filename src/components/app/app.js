@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import PrivateRoute from "../private-route/private-route";
 import LoginPage from "../pages/login-page/login-page";
 import MainPage from "../pages/main-page/main-page";
-import AddEventPage from "../pages/add-event-page/add-event-page";
+import AddOrderPage from "../pages/add-order-page/add-order-page";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           path={"/add-event"}
           element={
             <PrivateRoute>
-              <AddEventPage />
+              <AddOrderPage />
             </PrivateRoute>
           }
         />

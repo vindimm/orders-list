@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { deleteOrderAction, completeOrderAction, fetchOrdersAction } from "../../store/api-actions";
+import { deleteOrderAction, completeOrderAction } from "../../store/api-actions";
 import { getUser } from "../../store/selectors";
 import "./style.css";
 
