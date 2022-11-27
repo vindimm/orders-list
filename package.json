@@ -18,12 +18,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "front": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server --watch server/database.json -p 3001",
-    "dev": "concurrently \"npm run server\" \"npm run start\""
+    "start": "concurrently \"npm run server\" \"npm run front\""
   },
   "eslintConfig": {
     "extends": [
