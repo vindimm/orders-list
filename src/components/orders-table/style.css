@@ -6,10 +6,15 @@ table {
 td {
   padding: 10px;
   border: 1px solid #000000;
+  text-align: center;
 }
 
 thead {
   background-color: #b9b9b9;
+}
+
+.orders-table__sorting-td {
+  display: flex;
 }
 
 .order--completed {
@@ -21,6 +26,22 @@ thead {
   color: #ffffff;
   border: none;
   cursor: pointer;
+}
+
+.orders-table__button--sorting {
+  padding: 6px 8px;
+  margin: 0 2px;
+
+  background-color: #b9b9b9;
+  color: #000000;
+}
+
+.orders-table__button--sorting:hover {
+  background-color: #737373;
+}
+
+.orders-table__button--sorting:active {
+  background-color: #eeeeee;
 }
 
 .orders-table__button--delete {

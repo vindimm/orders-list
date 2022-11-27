@@ -33,14 +33,6 @@
       "id": 9
     },
     {
-      "name": "Japan",
-      "address": "vs Costa-Rica",
-      "date": "27 ноября 2022",
-      "status": "Новый",
-      "comment": "One more win today!",
-      "id": 10
-    },
-    {
       "name": "Di Caprio",
       "address": "Wall Street",
       "date": "27 ноября 2022",
@@ -79,6 +71,22 @@
       "status": "Новый",
       "comment": "Нужно больше минералов!",
       "id": 17
+    },
+    {
+      "name": "Иван Иваныч Иванов",
+      "address": "www leningrad",
+      "date": "27 ноября 2022",
+      "status": "Новый",
+      "comment": "",
+      "id": 18
+    },
+    {
+      "name": "Петр Петров Петрович",
+      "address": "Санкт-Петербург",
+      "date": "27 ноября 2022",
+      "status": "Новый",
+      "comment": "Для Петра",
+      "id": 19
     }
   ],
   "users": [

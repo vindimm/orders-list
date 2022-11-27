@@ -4,7 +4,12 @@ import { completeOrderAction } from "../../store/api-actions";
 import { getUser } from "../../store/selectors";
 import "./style.css";
 
-function OrdersTable({ orders, handleOpenModal, handleDeletingOrderId }) {
+function OrdersTable({
+  orders,
+  handleOpenModal,
+  handleDeletingOrderId,
+  handleSortingData,
+}) {
   const user = useSelector(getUser);
   const dispatch = useDispatch();
 
@@ -15,8 +20,12 @@ function OrdersTable({ orders, handleOpenModal, handleDeletingOrderId }) {
 
   const handleOrderComplete = (order) => {
     const updatedOrder = Object.assign({}, order);
-    updatedOrder.status = 'Выполнен';
+    updatedOrder.status = "Выполнен";
     dispatch(completeOrderAction(updatedOrder));
+  };
+
+  const handleSortingButtonClick = (sortingParams) => {
+    handleSortingData(sortingParams);
   };
 
   return (
@@ -25,8 +34,36 @@ function OrdersTable({ orders, handleOpenModal, handleDeletingOrderId }) {
         <tr>
           <td>№</td>
           <td>Имя клиента</td>
-          <td>Адрес</td>
-          <td>Дата заказа</td>
+          <td>
+            Адрес
+            <button
+              className="orders-table__button orders-table__button--sorting"
+              onClick={() => handleSortingButtonClick(["address", "asc"])}
+            >
+              &#9650;
+            </button>
+            <button
+              className="orders-table__button orders-table__button--sorting"
+              onClick={() => handleSortingButtonClick(["address", "desc"])}
+            >
+              &#9660;
+            </button>
+          </td>
+          <td>
+            Дата заказа
+            <button
+              className="orders-table__button orders-table__button--sorting"
+              onClick={() => handleSortingButtonClick(["date", "asc"])}
+            >
+              &#9650;
+            </button>
+            <button
+              className="orders-table__button orders-table__button--sorting"
+              onClick={() => handleSortingButtonClick(["date", "desc"])}
+            >
+              &#9660;
+            </button>
+          </td>
           <td>Статус</td>
           <td>Комментарий</td>
         </tr>
@@ -51,7 +88,9 @@ function OrdersTable({ orders, handleOpenModal, handleDeletingOrderId }) {
                   className="orders-table__button orders-table__button--complete"
                   type="button"
                   onClick={() => handleOrderComplete(order)}
-                >V</button>
+                >
+                  V
+                </button>
               </td>
             )}
             {user.role === "ADMIN" && (

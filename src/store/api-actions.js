@@ -5,8 +5,15 @@ import { loadOrders, deleteOrder, completeOrder } from "./orders-data/orders-dat
 
 export const fetchOrdersAction = createAsyncThunk(
   "orders/fetchOrders",
-  async (_arg, { dispatch, extra: api }) => {
-    const { data } = await api.get("/events");
+  async (sortingParams, { dispatch, extra: api }) => {
+    let query = "/events";
+
+    if (sortingParams.length) {
+      const [sortingItem, sortingType] = sortingParams;
+      query = `/events?_sort=${sortingItem}&_order=${sortingType}`;
+    }
+    
+    const { data } = await api.get(query);
     dispatch(loadOrders(data));
   }
 );

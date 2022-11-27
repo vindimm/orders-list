@@ -18,6 +18,7 @@ function MainPage() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deletingOrderId, setDeletingOrderId] = useState(null);
+  const [sortingParams, setSortingParams] = useState([]);
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -37,9 +38,16 @@ function MainPage() {
     dispatch(deleteOrderAction(deletingOrderId));
   };
 
+  const handleSortingParams = ([sortingItem, sortingOrder]) => {
+    // console.log(sortingItem);
+    // console.log(sortingOrder);
+    setSortingParams([sortingItem, sortingOrder]);
+    // console.log(sortingParams);
+  };
+
   useEffect(() => {
-    dispatch(fetchOrdersAction());
-  }, [dispatch]);
+    dispatch(fetchOrdersAction(sortingParams));
+  }, [sortingParams, dispatch]);
 
   return (
     <Layout>
@@ -48,6 +56,7 @@ function MainPage() {
         orders={orders}
         handleOpenModal={handleOpenModal}
         handleDeletingOrderId={handleDeletingOrderId}
+        handleSortingData={handleSortingParams}
       />
       <Modal
         isModalOpen={isModalOpen}
