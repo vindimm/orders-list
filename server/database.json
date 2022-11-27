@@ -33,30 +33,6 @@
       "id": 9
     },
     {
-      "name": "Di Caprio",
-      "address": "Wall Street",
-      "date": "27 ноября 2022",
-      "status": "Новый",
-      "comment": "He is a wolf",
-      "id": 12
-    },
-    {
-      "name": "Джек Воробей",
-      "address": "Карибское море",
-      "date": "27 ноября 2022",
-      "status": "Новый",
-      "comment": "Капитан!",
-      "id": 13
-    },
-    {
-      "name": "Черный плащ",
-      "address": "Дисней",
-      "date": "27 ноября 2022",
-      "status": "Новый",
-      "comment": "Только свистни - он появится!",
-      "id": 15
-    },
-    {
       "name": "Черепашки-ниндзя",
       "address": "Канализация",
       "date": "27 ноября 2022",
@@ -76,16 +52,16 @@
       "name": "Иван Иваныч Иванов",
       "address": "www leningrad",
       "date": "27 ноября 2022",
-      "status": "Новый",
+      "status": "Выполнен",
       "comment": "",
       "id": 18
     },
     {
-      "name": "Петр Петров Петрович",
-      "address": "Санкт-Петербург",
+      "name": "Иван Иванов",
+      "address": "qweqeqwe",
       "date": "27 ноября 2022",
-      "status": "Новый",
-      "comment": "Для Петра",
+      "status": "Выполнен",
+      "comment": "dasdasdasd",
       "id": 19
     }
   ],

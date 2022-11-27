@@ -6,10 +6,7 @@ import Navigation from "../../navigation/navigation";
 import Layout from "../../layout/layout";
 import OrdersTable from "../../orders-table/orders-table";
 import Modal from "../../modal/modal";
-import {
-  fetchOrdersAction,
-  deleteOrderAction,
-} from "../../../store/api-actions";
+import { fetchOrdersAction, deleteOrderAction } from "../../../store/api-actions";
 import "./style.css";
 
 function MainPage() {

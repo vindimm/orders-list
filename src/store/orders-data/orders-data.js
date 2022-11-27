@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { ORDER_STATUS } from "../../const";
+
 const initialState = {
   orders: [],
   isDataLoaded: false,
@@ -17,7 +19,7 @@ export const ordersData = createSlice({
       state.orders = state.orders.filter((order) => order.id !== action.payload);
     },
     completeOrder: (state, action) => {
-      state.orders.find((order) => order.id === action.payload).status = 'Выполнен';
+      state.orders.find((order) => order.id === action.payload).status = ORDER_STATUS.COMPLETED;
     },
   },
 });

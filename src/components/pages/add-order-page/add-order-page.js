@@ -7,6 +7,7 @@ import { formatDate } from "../../../utils/format-date";
 import { getUser } from "../../../store/selectors";
 import Navigation from "../../navigation/navigation";
 import Layout from "../../layout/layout";
+import { ORDER_STATUS, APP_ROUTE } from "../../../const";
 import "./style.css";
 
 function AddOrderPage() {
@@ -24,11 +25,11 @@ function AddOrderPage() {
         name: name,
         address: address,
         date: formatDate(Date.now()),
-        status: "Новый",
+        status: ORDER_STATUS.NEW,
         comment: comment,
       })
     );
-    navigate("/main");
+    navigate(APP_ROUTE.MAIN);
   }
 
   const handleSubmit = (evt) => {

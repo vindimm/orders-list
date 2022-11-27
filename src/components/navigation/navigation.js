@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getAuthStatus, getUser } from "../../store/selectors"
 import { logoutAction } from "../../store/api-actions";
+import { APP_ROUTE, AUTH_STATUS } from "../../const";
 import "./style.css";
 
 function Navigation() {
@@ -13,8 +14,8 @@ function Navigation() {
   const user = useSelector(getUser);
 
   useEffect(() => {
-    if (authStatus !== "AUTH") {
-      navigate("/login");
+    if (authStatus !== AUTH_STATUS.AUTH) {
+      navigate(APP_ROUTE.LOGIN);
     }
   }, [authStatus, navigate]);
 
@@ -25,10 +26,10 @@ function Navigation() {
 
   return (
     <nav className="navigation">
-      <Link className="navigation__link" to="/main">
+      <Link className="navigation__link" to={APP_ROUTE.MAIN}>
         Все заказы
       </Link>
-      <Link className="navigation__link" to="/add-order">
+      <Link className="navigation__link" to={APP_ROUTE.ADD_ORDER}>
         Добавить заказ
       </Link>
       <span className="navigation__user-name">{user.name}</span>

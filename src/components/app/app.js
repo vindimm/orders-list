@@ -5,15 +5,16 @@ import LoginPage from "../pages/login-page/login-page";
 import MainPage from "../pages/main-page/main-page";
 import AddOrderPage from "../pages/add-order-page/add-order-page";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
+import { APP_ROUTE } from "../../const";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route index element={<Navigate to={"/login"} />} />
-        <Route path={"/login"} element={<LoginPage />} />
+        <Route index element={<Navigate to={APP_ROUTE.LOGIN} />} />
+        <Route path={APP_ROUTE.LOGIN} element={<LoginPage />} />
         <Route
-          path={"/main"}
+          path={APP_ROUTE.MAIN}
           element={
             <PrivateRoute>
               <MainPage />
@@ -21,7 +22,7 @@ function App() {
           }
         />
         <Route
-          path={"/add-order"}
+          path={APP_ROUTE.ADD_ORDER}
           element={
             <PrivateRoute>
               <AddOrderPage />

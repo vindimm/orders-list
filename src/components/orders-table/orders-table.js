@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { completeOrderAction } from "../../store/api-actions";
 import { getUser } from "../../store/selectors";
+import { ORDER_STATUS, USER_ROLE } from "../../const";
 import "./style.css";
 
 function OrdersTable({
@@ -20,7 +21,7 @@ function OrdersTable({
 
   const handleOrderComplete = (order) => {
     const updatedOrder = Object.assign({}, order);
-    updatedOrder.status = "Выполнен";
+    updatedOrder.status = ORDER_STATUS.COMPLETED;
     dispatch(completeOrderAction(updatedOrder));
   };
 
@@ -72,7 +73,7 @@ function OrdersTable({
         {orders.map((order) => (
           <tr
             className={`order--${
-              order.status === "Выполнен" ? "completed" : "new"
+              order.status === ORDER_STATUS.COMPLETED ? "completed" : "new"
             }`}
             key={order.id}
           >
@@ -82,7 +83,7 @@ function OrdersTable({
             <td>{order.date}</td>
             <td>{order.status}</td>
             <td>{order.comment}</td>
-            {user.role === "ADMIN" && order.status !== "Выполнен" && (
+            {user.role === USER_ROLE.ADMIN && order.status !== ORDER_STATUS.COMPLETED && (
               <td>
                 <button
                   className="orders-table__button orders-table__button--complete"
@@ -93,7 +94,7 @@ function OrdersTable({
                 </button>
               </td>
             )}
-            {user.role === "ADMIN" && (
+            {user.role === USER_ROLE.ADMIN && (
               <td>
                 <button
                   className="orders-table__button orders-table__button--delete"
