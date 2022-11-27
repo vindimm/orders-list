@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { addOrderAction } from "../../../store/api-actions";
 import Navigation from "../../navigation/navigation";
@@ -8,14 +9,14 @@ import { formatDate } from "../../../utils/format-date";
 import "./style.css";
 
 function AddOrderPage() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const nameRef = useRef(null);
   const addressRef = useRef(null);
   const commentRef = useRef(null);
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    dispatch(
+  async function postAndNavigate() {
+    await dispatch(
       addOrderAction({
         name: nameRef.current.value,
         address: addressRef.current.value,
@@ -24,6 +25,12 @@ function AddOrderPage() {
         comment: commentRef.current.value,
       })
     );
+    navigate("/main");
+  }
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    postAndNavigate();
   };
 
   return (
