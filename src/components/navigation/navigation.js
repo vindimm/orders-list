@@ -28,7 +28,7 @@ function Navigation() {
       <Link className="navigation__link" to="/main">
         Все заказы
       </Link>
-      <Link className="navigation__link" to="/add-event">
+      <Link className="navigation__link" to="/add-order">
         Добавить заказ
       </Link>
       <span className="navigation__user-name">{user.name}</span>

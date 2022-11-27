@@ -1,4 +1,4 @@
-.add-event__container {
+.add-order__container {
   display: flex;
   flex-direction: column;
 
@@ -7,12 +7,12 @@
   width: 200px;
 }
 
-.add-event__title {
+.add-order__title {
   font-size: 16px;
   margin-bottom: 32px;
 }
 
-.add-event__input {
+.add-order__input {
   width: 200px;
   box-sizing: border-box;
   height: 28px;
@@ -20,13 +20,18 @@
   border: none;
 }
 
-.add-event__button {
+.add-order__button {
   border: none;
   padding: 8px 16px;
   background-color: #d2d2d2;
   cursor: pointer;
 }
 
-.add-event__button:active {
-  opacity: 0.6;
+.add-order__button:hover,
+.add-order__button:focus {
+  background-color: #c0c0c0;
+}
+
+.add-order__button:active {
+  background-color: #d2d2d2;
 }

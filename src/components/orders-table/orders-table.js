@@ -1,19 +1,22 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { deleteOrderAction, completeOrderAction } from "../../store/api-actions";
+import { completeOrderAction } from "../../store/api-actions";
 import { getUser } from "../../store/selectors";
 import "./style.css";
 
-function OrdersTable({ orders }) {
+function OrdersTable({ orders, handleOpenModal, handleDeletingOrderId }) {
   const user = useSelector(getUser);
   const dispatch = useDispatch();
 
-  const handleOrderDelete = (id) => {
-    dispatch(deleteOrderAction(id));
+  const handleDeleteButtonClick = (id) => {
+    handleOpenModal();
+    handleDeletingOrderId(id);
   };
 
-  const handleOrderComplete = (id) => {
-    dispatch(completeOrderAction(id));
+  const handleOrderComplete = (order) => {
+    const updatedOrder = Object.assign({}, order);
+    updatedOrder.status = 'Выполнен';
+    dispatch(completeOrderAction(updatedOrder));
   };
 
   return (
@@ -47,7 +50,7 @@ function OrdersTable({ orders }) {
                 <button
                   className="orders-table__button orders-table__button--complete"
                   type="button"
-                  onClick={() => handleOrderComplete(order.id)}
+                  onClick={() => handleOrderComplete(order)}
                 >V</button>
               </td>
             )}
@@ -56,7 +59,7 @@ function OrdersTable({ orders }) {
                 <button
                   className="orders-table__button orders-table__button--delete"
                   type="button"
-                  onClick={() => handleOrderDelete(order.id)}
+                  onClick={() => handleDeleteButtonClick(order.id)}
                 >
                   X
                 </button>

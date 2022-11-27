@@ -21,7 +21,7 @@ function App() {
           }
         />
         <Route
-          path={"/add-event"}
+          path={"/add-order"}
           element={
             <PrivateRoute>
               <AddOrderPage />

@@ -15,7 +15,8 @@ function AddOrderPage() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(addOrderAction({
+    dispatch(
+      addOrderAction({
         name: nameRef.current.value,
         address: addressRef.current.value,
         date: formatDate(Date.now()),
@@ -31,10 +32,29 @@ function AddOrderPage() {
       <div className="add-order__container">
         <h1 className="add-order__title">Добавить заказ</h1>
         <form onSubmit={handleSubmit}>
-          <input className="add-order__input" ref={nameRef} type="text" placeholder="Введите ваше имя" required/>
-          <input className="add-order__input" ref={addressRef} type="text" placeholder="Введите ваш адрес" required/>
-          <input className="add-order__input" ref={commentRef} type="text" placeholder="Комментарий"/>
-          <button className="add-order__button" type="submit">Добавить заказ</button>
+          <input
+            className="add-order__input"
+            ref={nameRef}
+            type="text"
+            placeholder="Введите ваше имя"
+            required
+          />
+          <input
+            className="add-order__input"
+            ref={addressRef}
+            type="text"
+            placeholder="Введите ваш адрес"
+            required
+          />
+          <input
+            className="add-order__input"
+            ref={commentRef}
+            type="text"
+            placeholder="Комментарий"
+          />
+          <button className="add-order__button" type="submit">
+            Добавить заказ
+          </button>
         </form>
       </div>
     </Layout>

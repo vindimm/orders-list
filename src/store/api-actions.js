@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import { requireAuth } from "./user-data/user-data";
 import {
   loadOrders,
   deleteOrder,
   completeOrder,
 } from "./orders-data/orders-data";
-import { requireAuth } from "./user-data/user-data";
 
 export const fetchOrdersAction = createAsyncThunk(
   "orders/fetchOrders",
@@ -77,9 +77,10 @@ export const addOrderAction = createAsyncThunk(
 
 export const completeOrderAction = createAsyncThunk(
   "order/complete",
-  async (id, { dispatch, extra: api }) => {
+  async (data, { dispatch, extra: api }) => {
     try {
-      dispatch(completeOrder(id));
+      dispatch(completeOrder(data.id));
+      await api.put(`/events/${data.id}`, data);
     } catch (error) {
       // handleError(error);
     }
