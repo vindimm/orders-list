@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"
 
-import { getAuthStatus } from "../../../store/selectors"
+import { getAuthStatus, getErrorMessage } from "../../../store/selectors"
 import { loginAction } from "../../../store/api-actions";
 import Layout from "../../layout/layout";
 import "./style.css";
@@ -13,6 +13,7 @@ function LoginPage() {
   const loginRef = useRef(null);
   const passwordRef = useRef(null);
   const authStatus = useSelector(getAuthStatus);
+  const errorMessage = useSelector(getErrorMessage);
 
   useEffect(() => {
     if (authStatus === "AUTH") {
@@ -48,13 +49,14 @@ function LoginPage() {
             placeholder="password"
             minLength="8"
             required
-          />
+            />
           <button
             className="login-form__button login-form__interactive"
             type="submit"
-          >
+            >
             Войти
           </button>
+          {errorMessage && <div className="error-message">{errorMessage}</div>}
         </form>
       </div>
     </Layout>

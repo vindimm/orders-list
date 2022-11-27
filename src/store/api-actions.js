@@ -1,11 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { requireAuth } from "./user-data/user-data";
-import {
-  loadOrders,
-  deleteOrder,
-  completeOrder,
-} from "./orders-data/orders-data";
+import { requireAuth, setErrorMessage, resetErrorMessage } from "./user-data/user-data";
+import { loadOrders, deleteOrder, completeOrder } from "./orders-data/orders-data";
 
 export const fetchOrdersAction = createAsyncThunk(
   "orders/fetchOrders",
@@ -27,13 +23,14 @@ export const loginAction = createAsyncThunk(
 
       if (user) {
         if (user.password === password) {
-          dispatch(requireAuth({ authStatus: "AUTH", user }));
           // Успешная авторизация
+          dispatch(requireAuth({ authStatus: "AUTH", user }));
+          dispatch(resetErrorMessage());
         } else {
-          // Неверный пароль
+          dispatch(setErrorMessage("Неверный пароль"));
         }
       } else {
-        // Пользователь не найден
+        dispatch(setErrorMessage("Пользователь не найден"));
       }
     } catch (error) {
       dispatch(requireAuth({ authStatus: "NO_AUTH" }));

@@ -3,6 +3,7 @@
 }
 
 .login-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -11,7 +12,7 @@
   box-sizing: border-box;
   width: 344px;
   min-height: 245px;
-  padding: 57px 38px 22px 38px;
+  padding: 56px 38px 70px 38px;
 
   background-color: #d9d9d9;
 }
@@ -35,4 +36,16 @@
 
 .login-form__button:active {
   background-color: #ffffff;
+}
+
+.error-message {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+
+  width: 80%;
+
+  text-align: center;
+  color: #d60f0f;
 }
