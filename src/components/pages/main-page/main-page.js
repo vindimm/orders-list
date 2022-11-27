@@ -39,10 +39,7 @@ function MainPage() {
   };
 
   const handleSortingParams = ([sortingItem, sortingOrder]) => {
-    // console.log(sortingItem);
-    // console.log(sortingOrder);
     setSortingParams([sortingItem, sortingOrder]);
-    // console.log(sortingParams);
   };
 
   useEffect(() => {

@@ -1,9 +1,3 @@
-// import { useEffect } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-
-// import { getAuthStatus, getUser } from "../../store/selectors"
-// import { logoutAction } from "../../store/api-actions";
 import "./style.css";
 
 function Modal({ isModalOpen, handleDeleteOrder, handleCloseModal }) {
@@ -16,26 +10,30 @@ function Modal({ isModalOpen, handleDeleteOrder, handleCloseModal }) {
     handleCloseModal();
   };
 
+  const handleEscKeyDown = (evt) => {
+    if (evt.key === "Escape") {
+      handleCloseModal();
+    }
+  };
+
+  const handleOverlayClick = (evt) => {
+    if (evt.target.classList.contains("modal-overlay")) {
+      handleCloseModal();
+    }
+  }
+
   return (
     isModalOpen && (
-      <div className="modal-container">
+      <div className="modal-overlay" onKeyDown={handleEscKeyDown} onClick={(evt) => handleOverlayClick(evt)}>
         <div className="modal">
           <h2 className="modal__title">
             Вы действительно хотите удалить заказ?
           </h2>
           <div className="modal__button-wrapper">
-            <button
-              className="modal__button"
-              type="button"
-              onClick={handleOkClick}
-            >
+            <button className="modal__button" type="button" onClick={handleOkClick}>
               Ок
             </button>
-            <button
-              className="modal__button"
-              type="button"
-              onClick={handleCancelClick}
-            >
+            <button className="modal__button" type="button" onClick={handleCancelClick} autoFocus>
               Отмена
             </button>
           </div>
